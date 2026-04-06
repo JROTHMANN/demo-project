@@ -85,12 +85,6 @@
             border-radius: 8px;
         }
 
-        .chart-container {
-            position: relative;
-            height: 350px;
-            margin: 2rem 0;
-        }
-
         .btn-toggle {
             background: var(--accent);
             color: white;
@@ -149,11 +143,11 @@
             <div class="plot-container">
                 <img src="housing_analysis_results (2).jpg" alt="Python Analysis Graph">
                 <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
-                    <em>Figure 1: Time-series comparison of S&P Case-Shiller Index (Actual) vs. Gradient Boosting Forecast (Predicted).</em>
+                    <em>Figure 1: Comparison of S&P Case-Shiller Index (Actual) vs. Gradient Boosting Forecast (Predicted) from Google Colab.</em>
                 </p>
             </div>
             
-            <p>The visualization above represents the "Core Findings" of our technical analysis. The black line tracks the actual monthly movements of the housing index, while the dashed red line shows the Gradient Boosting model's forecast.</p>
+            <p>The visualization above represents the "Core Findings" of our technical analysis. The black line tracks the actual monthly movements of the housing index, while the dashed red line shows the Gradient Boosting model's attempt to forecast those movements based solely on interest rates and GDP data.</p>
             
             <div class="highlight-box">
                 "Our Gradient Boosting architecture achieved a superior R² score of 0.7019, successfully accounting for approximately 70% of the variance in the national housing market."
@@ -161,17 +155,9 @@
         </section>
 
         <section class="card">
-            <h2>Comparative Model Performance</h2>
-            <p>To validate our selection of Gradient Boosting, we compared multiple algorithmic approaches. The bar chart below illustrates the R² scores across our testing suite.</p>
-            <div class="chart-container">
-                <canvas id="modelChart"></canvas>
-            </div>
-        </section>
-
-        <section class="card">
             <h2>Critical Insights & Analytical Findings</h2>
             <p>The most significant analytical finding is what we call the <strong>"Macro-Stability Anchor."</strong> By achieving an R² of 0.7019, we have statistically proven that the Federal Reserve holds a 70% "interest rate lever" over the entire U.S. housing market. This confirms that macro-economic policy is the single most important predictor for institutional real estate forecasting.</p>
-            <p>However, the <strong>30% unexplained variance</strong> is where the true market complexity lies. This "Alpha Gap" is the result of non-macro variables such as regional zoning laws, the rise of institutional investors outbidding private families, and chronic inventory shortages in high-demand markets.</p>
+            <p>However, the <strong>30% unexplained variance</strong> is where the true market complexity lies. This "Alpha Gap" is the result of non-macro variables such as regional zoning laws, the rise of institutional investors outbidding private families, and chronic inventory shortages in high-demand markets like California and Massachusetts.</p>
         </section>
 
         <section class="ethics-gradient">
@@ -199,29 +185,6 @@
                 body.setAttribute('data-theme', 'dark');
             }
         }
-
-        // RESTORED BAR CHART LOGIC
-        const modelCtx = document.getElementById('modelChart').getContext('2d');
-        new Chart(modelCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Linear Regression', 'Random Forest', 'Gradient Boosting'],
-                datasets: [{
-                    label: 'R² Accuracy Score',
-                    data: [0.55, 0.6928, 0.7019],
-                    backgroundColor: ['#94a3b8', '#0ea5e9', '#2563eb'],
-                    borderRadius: 8
-                }]
-            },
-            options: { 
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: {
-                    y: { beginAtZero: true, max: 1, ticks: { color: '#94a3b8' } },
-                    x: { ticks: { color: '#94a3b8' } }
-                }
-            }
-        });
     </script>
 </body>
 </html>
