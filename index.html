@@ -130,39 +130,37 @@
 
     <nav class="navbar">
         <div style="font-weight: 800; letter-spacing: -1px;">ISOM 835 | PREDICTIVE ANALYTICS</div>
-        <button class="btn-toggle" onclick="toggleTheme()">🌓 Dark/Light Mode</button>
+        <button class="btn-toggle" onclick="toggleTheme()">🌓 Toggle Mode</button>
     </nav>
 
     <div class="container">
         <header class="hero">
             <h1>Forecasting the U.S. Housing Market</h1>
-            <p style="font-size: 1.2rem; color: var(--text-secondary);">An Examination of Macro-Economic Determinants using Gradient Boosting Architectures.</p>
+            <p style="font-size: 1.2rem; color: var(--text-secondary);">Identifying Macro-Economic Drivers using Gradient Boosting Architectures.</p>
         </header>
 
         <section class="card">
             <h2>Executive Research Objectives</h2>
-            <p>This project investigates the causal relationship between <strong>Federal Monetary Policy</strong> and the <strong>S&P Case-Shiller Home Price Index</strong>. By utilizing primary source data from the Federal Reserve Economic Data (FRED) repository, we established a predictive framework to forecast housing price volatility.</p>
-            <p>Our methodology applies a <strong>3-month temporal lag</strong> to interest rate shifts, accounting for the administrative and behavioral friction inherent in the residential real estate market.</p>
+            <p>This project investigates the relationship between <strong>Federal Monetary Policy</strong> and the <strong>S&P Case-Shiller Home Price Index</strong>. By utilizing primary source data from the Federal Reserve Economic Data (FRED) repository, we established a predictive framework to forecast housing price volatility through a <strong>3-month temporal lag</strong>.</p>
         </section>
 
         <section class="card">
             <h2>Empirical Model Results: Actual vs. Predicted</h2>
             <div class="plot-container">
-                <img src="housing_analysis_results (2).jpg" alt="Actual vs Predicted Line Graph">
+                <img src="housing_analysis_results (2).jpg" alt="Python Analysis Line Graph">
                 <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
-                    <em>Figure 1: Comparison of S&P Case-Shiller Index (Actual) vs. Gradient Boosting Forecast (Predicted) generated in Google Colab.</em>
+                    <em>Figure 1: Comparison of S&P Case-Shiller Index (Actual) vs. Gradient Boosting Forecast (Predicted) from Google Colab.</em>
                 </p>
             </div>
-            <p>The time-series visualization above confirms that approximately 70% of housing price variance is tethered to federal policy shifts. The alignment between the actual market index (Black) and our Gradient Boosting predictions (Red) validates the model's reliability in identifying macro-trends.</p>
+            <p>The time-series visualization above confirms that approximately 70% of housing price variance is tethered to federal policy shifts. The alignment between the actual market index (Black) and our Gradient Boosting predictions (Red) validates the model's reliability.</p>
         </section>
 
         <section class="card">
             <h2>Comparative Model Performance</h2>
-            <p>To ensure the highest possible accuracy, we evaluated three distinct machine learning architectures. The bar chart below illustrates the R² scores achieved during the validation phase.</p>
+            <p>The bar chart below illustrates the R² scores achieved across our testing suite, highlighting the superior performance of the Gradient Boosting model compared to traditional linear methods.</p>
             <div class="chart-container">
                 <canvas id="modelChart"></canvas>
             </div>
-            <p>While Linear Regression served as a necessary baseline, the <strong>Gradient Boosting</strong> model outperformed both it and the Random Forest architecture by more effectively capturing the non-linear relationship between rate hikes and market corrections.</p>
         </section>
 
         <section class="card">
@@ -170,12 +168,12 @@
             <div class="highlight-box">
                 "By achieving an R² of 0.7019, this research quantifies a 70% 'Macro-Stability Anchor' where housing prices are dictated by federal intervention."
             </div>
-            <p>The remaining 30% of unexplained variance highlights the influence of <strong>Hyper-Local variables</strong>. This includes municipal zoning restrictions, regional migration patterns, and inventory shortages in high-growth corridors like Massachusetts and California. This "Alpha Gap" suggests that while macro-policy sets the floor, local demand and supply constraints set the ceiling.</p>
+            <p>The remaining 30% of unexplained variance highlights the influence of <strong>Hyper-Local variables</strong>. This includes municipal zoning restrictions, regional migration patterns, and inventory shortages in high-growth corridors like Massachusetts and California.</p>
         </section>
 
         <section class="ethics-gradient">
             <h2>Ethical Interpretability & Systemic Bias</h2>
-            <p>Deploying predictive models in the housing sector requires extreme caution regarding <strong>Algorithmic Redlining</strong>. Models that optimize solely for macro-economic efficiency may inadvertently devalue properties in emerging neighborhoods. We advocate for the use of SHAP values to ensure transparency and protect historically marginalized communities from purely algorithmic decision-making.</p>
+            <p>Deploying predictive models in the housing sector requires extreme caution regarding <strong>Algorithmic Redlining</strong>. We advocate for the use of SHAP values to ensure transparency and protect historically marginalized communities from purely algorithmic decision-making.</p>
         </section>
 
         <section class="card" style="border-top: 5px solid var(--accent); margin-top: 2rem;">
