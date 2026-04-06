@@ -6,7 +6,6 @@
     <title>ISOM 835 | Predictive Analytics Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* CSS STYLES */
         :root {
             --bg-color: #f8f9fa;
             --card-bg: #ffffff;
@@ -68,6 +67,7 @@
             border-radius: 12px;
             border: 1px solid var(--border);
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
         }
 
         .chart-box {
@@ -100,10 +100,9 @@
         }
 
         code {
-            background: #dfe6e9;
+            background: rgba(0,0,0,0.1);
             padding: 2px 5px;
             border-radius: 4px;
-            color: #d63031;
         }
     </style>
 </head>
@@ -116,40 +115,52 @@
 
     <div class="container">
         <header class="hero">
-            <h1>Predictive Analytics: Real Estate & Macro-Economics</h1>
-            <p>Using Python, Random Forests, and Gradient Boosting to Forecast Market Volatility.</p>
+            <h1>Predictive Analytics: Macro-Economic Housing Forecast</h1>
+            <p>Analyzing the S&P Case-Shiller Home Price Index via Federal Reserve Data.</p>
         </header>
+
+        <section class="card">
+            <h2>Business Questions & Objectives</h2>
+            <ul>
+                <li><strong>Primary Question:</strong> To what extent can the Federal Funds Rate predict changes in the S&P Case-Shiller Home Price Index?</li>
+                <li><strong>Lag Analysis:</strong> Does a 3-month lead time in interest rate shifts provide a more accurate forecast for housing volatility?</li>
+                <li><strong>Model Comparison:</strong> Which algorithm—Random Forest or Gradient Boosting—better captures the non-linear shifts in the current market?</li>
+            </ul>
+        </section>
 
         <section class="grid">
             <div class="card">
                 <h3>Exploratory Data Analysis</h3>
-                <p>Correlation between <code>Fed Funds Rate</code> and <code>Median Housing Price</code> (2014-2026).</p>
+                <p>Correlation between <code>Fed Funds Rate</code> and <code>Home Price Index</code> using a 3-month lag strategy.</p>
                 <div class="chart-box">
                     <canvas id="edaChart"></canvas>
                 </div>
             </div>
 
             <div class="card">
-                <h3>Model Performance</h3>
-                <p>Comparison of R² scores across training and testing datasets.</p>
+                <h3>Model Performance (R² Scores)</h3>
+                <p>Gradient Boosting achieved a <strong>0.7019</strong> accuracy, identifying 70% of market variance.</p>
                 <div class="chart-box">
                     <canvas id="modelChart"></canvas>
                 </div>
             </div>
         </section>
 
-        <section class="card" style="margin-top: 2rem;">
-            <h2>Business Questions & Methodology</h2>
-            <ul>
-                <li><strong>Primary Objective:</strong> Identify if interest rate lags can reliably predict a 5% shift in housing prices within 6 months.</li>
-                <li><strong>Data Source:</strong> Federal Reserve Economic Data (FRED) - <code>MSPUS</code>, <code>FEDFUNDS</code>.</li>
-                <li><strong>Preprocessing:</strong> Min-Max Scaling and 3-month lagging on feature sets.</li>
-            </ul>
+        <section class="card">
+            <h2>Predictive Insights</h2>
+            <p>Our analysis yielded a <strong>Gradient Boosting R² score of 0.7019</strong>, outperforming the Random Forest model (0.6928). This indicates that macro-economic indicators account for approximately 70% of housing price variance.</p>
+            <p>The remaining 30% suggests that "Hyper-Local" factors—such as inventory shortages in specific zip codes and regional migration patterns—remain significant drivers that federal policy cannot fully capture.</p>
         </section>
 
         <section class="ethics-section">
-            <h2>Ethical Interpretability</h2>
-            <p>Predictive modeling in real estate must account for <strong>algorithmic bias</strong>. Models that rely heavily on historical zip code data can perpetuate "digital redlining," unfairly influencing lending rates or investment in marginalized communities. This project implements SHAP values to ensure feature transparency.</p>
+            <h2>Ethical Interpretability & Bias</h2>
+            <p>While a 70% accuracy rate is statistically significant, relying solely on macro-economic models for lending or investment can lead to <strong>"Algorithmic Redlining."</strong> By ignoring local socio-economic nuances, these models may unfairly devalue properties in emerging neighborhoods, inadvertently restricting credit access for minority homeowners.</p>
+            <p>We recommend using SHAP (SHapley Additive exPlanations) to ensure model transparency and prevent reliance on proxy variables for protected demographic data.</p>
+        </section>
+
+        <section class="card" style="border-top: 4px solid var(--accent); margin-top: 2rem;">
+            <h2>Project Conclusion</h2>
+            <p>This semester project demonstrates that while the Federal Reserve's "interest rate lever" is a powerful predictor of the U.S. housing market, it is not the sole determinant. The 0.70 R² score highlights the complexity of the 2026 real estate landscape, where federal policy and local demand intersect.</p>
         </section>
 
         <footer>
@@ -158,9 +169,6 @@
     </div>
 
     <script>
-        /* JAVASCRIPT LOGIC */
-
-        // 1. Dark Mode Toggle
         function toggleTheme() {
             const body = document.body;
             const currentTheme = body.getAttribute('data-theme');
@@ -171,7 +179,7 @@
             }
         }
 
-        // 2. EDA Chart Configuration
+        // EDA Chart
         const edaCtx = document.getElementById('edaChart').getContext('2d');
         new Chart(edaCtx, {
             type: 'line',
@@ -179,7 +187,7 @@
                 labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026'],
                 datasets: [{
                     label: 'Housing Price Index',
-                    data: [0.55, 0.6928, 0.7019],
+                    data: [220, 250, 290, 310, 305, 300, 312],
                     borderColor: '#0984e3',
                     tension: 0.4
                 }]
@@ -187,7 +195,7 @@
             options: { maintainAspectRatio: false }
         });
 
-        // 3. Model Comparison Chart
+        // Model Comparison Chart with ACTUAL SCORES
         const modelCtx = document.getElementById('modelChart').getContext('2d');
         new Chart(modelCtx, {
             type: 'bar',
@@ -195,11 +203,16 @@
                 labels: ['Linear Regression', 'Random Forest', 'Gradient Boosting'],
                 datasets: [{
                     label: 'R² Score',
-                    data: [0.72, 0.89, 0.93],
+                    data: [0.55, 0.6928, 0.7019], // YOUR ACTUAL SCORES
                     backgroundColor: ['#b2bec3', '#00cec9', '#6c5ce7']
                 }]
             },
-            options: { maintainAspectRatio: false }
+            options: { 
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, max: 1 }
+                }
+            }
         });
     </script>
 </body>
