@@ -136,13 +136,12 @@
         <section class="card">
             <h2>Executive Research Objectives</h2>
             <p>This project serves as a quantitative investigation into the causal link between <strong>Federal Monetary Policy</strong> and the <strong>S&P Case-Shiller Home Price Index</strong>. By leveraging historical data from the Federal Reserve Economic Data (FRED) repository, we aimed to determine the predictive power of interest rate shifts on residential real estate valuations.</p>
-            <p>Our methodology focused on a <strong>3-month temporal lag</strong>. This choice reflects the "real-world" friction of the market: home buyers and sellers typically require a 90-day window to react to interest rate adjustments, move through the mortgage approval process, and finalize closings. This model validates that reaction window through machine learning.</p>
         </section>
 
         <section class="card">
             <h2>Empirical Model Results: Actual vs. Predicted</h2>
             <div class="plot-container">
-                <img src="housing_analysis_results (2).png" alt="Python Analysis Graph">
+                <img src="housing_analysis_results (2).jpg" alt="Python Analysis Graph">
                 <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
                     <em>Figure 1: Comparison of S&P Case-Shiller Index (Actual) vs. Gradient Boosting Forecast (Predicted) from Google Colab.</em>
                 </p>
@@ -153,29 +152,26 @@
             <div class="highlight-box">
                 "Our Gradient Boosting architecture achieved a superior R² score of 0.7019, successfully accounting for approximately 70% of the variance in the national housing market."
             </div>
-            
-            <p>While the Random Forest model performed admirably (0.6928), the <strong>Gradient Boosting</strong> method proved more resilient. Boosting's iterative approach allowed the model to better "learn" from previous errors, which is critical when analyzing sharp, non-linear interest rate hikes like those seen in the 2023 fiscal tightening cycle.</p>
         </section>
 
         <section class="card">
             <h2>Critical Insights & Analytical Findings</h2>
             <p>The most significant analytical finding is what we call the <strong>"Macro-Stability Anchor."</strong> By achieving an R² of 0.7019, we have statistically proven that the Federal Reserve holds a 70% "interest rate lever" over the entire U.S. housing market. This confirms that macro-economic policy is the single most important predictor for institutional real estate forecasting.</p>
-            <p>However, the <strong>30% unexplained variance</strong> is where the true market complexity lies. This "Alpha Gap" is the result of non-macro variables such as regional zoning laws, the rise of institutional investors outbidding private families, and chronic inventory shortages in high-demand markets like California and Massachusetts. For a predictive model to reach 90% or higher, it would require "Hyper-Local" data integration beyond the scope of national federal indices.</p>
+            <p>However, the <strong>30% unexplained variance</strong> is where the true market complexity lies. This "Alpha Gap" is the result of non-macro variables such as regional zoning laws, the rise of institutional investors outbidding private families, and chronic inventory shortages in high-demand markets like California and Massachusetts.</p>
         </section>
 
         <section class="ethics-gradient">
             <h2>Ethical Interpretability & Systemic Bias</h2>
-            <p>Predictive modeling in real estate is not a neutral act. A 70% accurate model is powerful enough to drive lending decisions, yet <strong>algorithmic bias</strong> remains a massive risk. If lenders rely solely on these macro-models, they may inadvertently participate in "Digital Redlining"—systematically devaluing homes in communities that don't follow national macro-trends due to historical underinvestment.</p>
-            <p>Our report advocates for the use of <strong>SHAP Values</strong> to maintain model transparency. We must ensure that the "30% error" in our model does not disproportionately impact minority homeowners by predicting lower valuations based on proxy variables. We conclude that data science should augment, not replace, human appraisal in the housing sector.</p>
+            <p>Predictive modeling in real estate is not a neutral act. A 70% accurate model is powerful enough to drive lending decisions, yet <strong>algorithmic bias</strong> remains a massive risk. We must ensure that the "30% error" in our model does not disproportionately impact minority homeowners by predicting lower valuations based on proxy variables.</p>
         </section>
 
         <section class="card" style="border-top: 5px solid var(--accent); margin-top: 2rem;">
             <h2>Conclusion</h2>
-            <p>In summary, this ISOM 835 semester project successfully validated the 3-month lag theory of interest rate impact. We have transitioned from raw Federal Reserve data to a high-fidelity Gradient Boosting model capable of explaining 70% of market volatility. This provides a robust, ethical framework for future housing price forecasting.</p>
+            <p>This ISOM 835 semester project successfully validated the 3-month lag theory of interest rate impact. We have transitioned from raw Federal Reserve data to a high-fidelity Gradient Boosting model capable of explaining 70% of market volatility.</p>
         </section>
 
         <footer>
-            <p>&copy; 2026 | Semester Project for ISOM 835 Predictive Analytics<br>Finalized with Python, GitHub Pages, and Google Colab.</p>
+            <p>&copy; 2026 | Semester Project for ISOM 835 Predictive Analytics</p>
         </footer>
     </div>
 
